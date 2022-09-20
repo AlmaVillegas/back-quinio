@@ -1,10 +1,9 @@
-const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
-const path = require('path');
-// import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-// dotenv.config()
-require('dotenv').config()
+import express from 'express';
+import morgan from 'morgan';
+import cors from 'cors';
+import path from 'path';
+import * as dotenv from 'dotenv';
+dotenv.config()
 
 const app = express();
 
