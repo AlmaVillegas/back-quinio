@@ -2,8 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
-import * as dotenv from 'dotenv';
-dotenv.config()
+const config = require('./config');
 
 const app = express();
 
@@ -16,12 +15,24 @@ const history = require('connect-history-api-fallback');
 app.use(history());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const mongoose = require('mongoose');
+
+const uri = config.database_uri;
+const options = {useNewUrlParser: true};
+
+mongoose.connect(uri, options).then(() => { 
+      console.log('Conectado a DB') 
+    },
+   err => { 
+       console.log(err) 
+    }
+);
 
 app.get('/', function(req, res) {
     res.send('Hello world');
 });
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', config.port || 3000);
 app.listen(app.get('port'), function() {
     console.log('listening on port '+ app.get('port'));
 });
