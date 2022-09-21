@@ -5,8 +5,8 @@ const ContentSchema = new Schema({
     origin:  { type: String},
     type:    { type: String},
     walletId:{ type: String},
-    orderId: { type: mongoose.Types.ObjectId },
-    foreignTxId:  { type: mongoose.Types.ObjectId },
+    orderId: { type: String},
+    foreignTxId:  { type: String},
     expenses:     { type: String},
     saleAmount:   { type: Number},
     rewardAmount: { type: Number},
@@ -17,7 +17,7 @@ const ContentSchema = new Schema({
         type: String,
         enum: ["pending", "completed"],
     },
-    collaboratorId: { type: mongoose.Types.ObjectId },
+    collaboratorId: { type: String },
     originDetails:{
         tax:   { type: Number},
         group: { type: String},
@@ -46,12 +46,12 @@ const ContentSchema = new Schema({
                 }
             ],
             subtotal: { type: Number},
-            actualdate: {type: Date, default: Date.now},
-            businessdate: {type: Date, default: Date.now},
+            actualdate: {type: Date},
+            businessdate: {type: Date},
             transactionkey: { type: String}
         },
-        rewardsDetails: { type: String},
-        userId: { type: mongoose.Types.ObjectId }
+        rewardsDetails: { type: String },
+        userId: { type: String }
 });
 
 const Content = mongoose.model('Content', ContentSchema);

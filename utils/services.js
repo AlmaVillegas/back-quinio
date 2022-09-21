@@ -9,7 +9,7 @@ try{
     .set('X-Escale-Details', config.token)
     .query({page:0, size: 20})
     .catch(err => reject(err))
-
+    
     return data.body.content;
   }catch(err){
     throw err

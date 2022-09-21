@@ -14,26 +14,30 @@ module.exports = {
  */
 async function __addData() {
   try {
-      const data = setData();
 
-        const createdContent = await ContentModel.insertMany(data);
+      const data = await setData();
+
+      data.map(format =>{
+        saveData(format).then(function(){
+            console.log('Agregados')
+        })
+      })
       
-        return createdContent;
-
       } catch (err) {
         throw err;
       }
 }
 
 
-function setData(){
+async function setData(){
 
-    const data = serviceData.getData();
-
+    const data = await serviceData.getData();
     return data;
 }
 
+async function saveData(dta) {
 
-
-
-
+    const createdContent = await ContentModel.create(dta);
+      
+    return createdContent;
+  }
