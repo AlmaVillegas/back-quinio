@@ -1,8 +1,7 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const contentSchema = new Schema({
-  content: [{
+const ContentSchema = new Schema({
     origin:  { type: String},
     type:    { type: String},
     walletId:{ type: String},
@@ -53,10 +52,8 @@ const contentSchema = new Schema({
         },
         rewardsDetails: { type: String},
         userId: { type: mongoose.Types.ObjectId }
-        
-    }]
 });
 
-const Content = mongoose.model('Content', contentSchema);
+const Content = mongoose.model('Content', ContentSchema);
 
 export default Content;
