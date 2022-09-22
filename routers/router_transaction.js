@@ -6,4 +6,8 @@ router.get('/transaction', transactions.addData)
 
 router.get('/addTransaction', transactions.getData)
 
+router.get('/TransactionbonusSemanal', transactions.getDataBonus)
+
+router.get('/TransactionbonusDaily', transactions.getDataBonusD)
+
 module.exports = router

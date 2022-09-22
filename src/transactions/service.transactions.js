@@ -5,7 +5,9 @@ import Message from "../../utils/messages";
 
 module.exports = {
     __addData,
-    __getTransactions
+    __getTransactions,
+    __getTransactionsBonus,
+    __getTransactionsBonusD
 };
 
 /**
@@ -43,6 +45,40 @@ module.exports = {
      const transactions = await TransModel.create(formt)
   
      return transactions
+}
+
+/**
+ * get a transactions report semanal
+ *
+ * SERVICE
+ *
+ * @resolve {data}
+ */
+ async function __getTransactionsBonus() {
+
+    const transaction = await TransModel.find();
+    const data = {
+        Semana:transaction[0].weekAyer,
+        bonus: transaction[0].nBonus 
+    }
+    return data
+}
+
+/**
+ * get a transactions diario
+ *
+ * SERVICE
+ *
+ * @resolve {data}
+ */
+ async function __getTransactionsBonusD() {
+
+    const transaction = await TransModel.find();
+    const data = {
+        Semana:transaction[0].weekAyer/360,
+        bonus: transaction[0].nBonus/360 
+    }
+    return data
 }
 
 async function nBonus(){
