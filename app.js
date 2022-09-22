@@ -11,9 +11,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-// app.get('/', function(req, res) {
-//     res.send('Hello world');
-// });
+app.get('/', function(req, res) {
+    res.send('Hello world');
+});
 
 // app.use('/api', require('./routers/router'));
 app.use('/', require('./routers/router'));
