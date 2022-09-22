@@ -1,5 +1,4 @@
 import serviceContent from "./service.content";
-import Message from "../../utils/messages";
 
 module.exports = {
     addData

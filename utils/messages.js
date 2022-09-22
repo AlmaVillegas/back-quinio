@@ -12,5 +12,9 @@
       name: 'db_error',
       message: 'Error al guardar los datos'
     },
+    consulting_error: {
+      name: 'db_error',
+      message: 'Error al consultar los datos'
+    },
   };
   

@@ -17,6 +17,7 @@ app.use(express.urlencoded({extended:true}));
 
 // app.use('/api', require('./routers/router'));
 app.use('/', require('./routers/router'));
+app.use('/', require('./routers/router_transaction'));
 
 const history = require('connect-history-api-fallback');
 app.use(history());
