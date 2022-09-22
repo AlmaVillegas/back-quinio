@@ -39,9 +39,10 @@ module.exports = {
     const amount = await getAmount();
 
     const formt = format(content, bones, amountTotal, amount)
-    console.log(formt);
+    
      const transactions = await TransModel.create(formt)
-     console.log(transactions);
+  
+     return transactions
 }
 
 async function nBonus(){
